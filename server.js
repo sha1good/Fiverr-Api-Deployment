@@ -36,7 +36,6 @@ app.use(
     origin: "https://clone-fiverr-client-app01.netlify.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: "Access-Control-Allow-Credentials"
   })
 );
 
