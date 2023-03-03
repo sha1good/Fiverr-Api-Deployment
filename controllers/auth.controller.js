@@ -9,7 +9,7 @@ export const register = async (req, res, next) => {
     const hashPassword = bcrypt.hashSync(req.body.password, salt);
     const user = await User.findOne({ username: req.body.username });
     if (user) {
-     return next(createError(400, "Username or Email already exist!"));
+      return next(createError(400, "Username or Email already exist!"));
     }
     const newUser = new User({ ...req.body, password: hashPassword });
     await newUser.save();
@@ -32,7 +32,13 @@ export const login = async (req, res, next) => {
     );
 
     const { password, ...info } = user._doc;
-    res.cookie("accessToken", token, { httpOnly: true }).status(200).send(info);
+    res
+      .cookie("accessToken", token, {
+        sameSite: "none",
+        httpOnly: true,
+      })
+      .status(200)
+      .send(info);
   } catch (error) {
     next(createError(error.status, error.message));
   }
