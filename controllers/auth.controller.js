@@ -35,6 +35,7 @@ export const login = async (req, res, next) => {
     res
       .cookie("accessToken", token, {
         sameSite: "none",
+        domain: "https://clone-fiverr-client-app01.netlify.app",
         httpOnly: true,
       })
       .status(200)

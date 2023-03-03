@@ -31,9 +31,10 @@ const connect = async () => {
 //   next();
 // });
 
+app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://clone-fiverr-client-app01.netlify.app",
+    origin: "https://clone-fiverr-client-app01.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
