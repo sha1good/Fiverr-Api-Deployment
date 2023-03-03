@@ -26,10 +26,15 @@ const connect = async () => {
   }
 };
 
+app.use((req,res,next)=>{
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
+})
+
+app.use(cors({ origin: "https://clone-fiverr-client-app01.netlify.app"}));
+
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "https://clone-fiverr-client-app01.netlify.app", credentials: true }));
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
