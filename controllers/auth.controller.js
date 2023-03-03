@@ -34,8 +34,6 @@ export const login = async (req, res, next) => {
     const { password, ...info } = user._doc;
     res
       .cookie("accessToken", token, {
-        sameSite: "none",
-        domain: "https://clone-fiverr-client-app01.netlify.app",
         httpOnly: true,
       })
       .status(200)
@@ -47,7 +45,7 @@ export const login = async (req, res, next) => {
 
 export const logout = async (req, res) => {
   res
-    .clearCookie("accessToken", { sameSite: "none", secure: true })
+    .clearCookie("accessToken", { httpOnly: true, })
     .status(200)
     .send("User has been logout.!");
 };
