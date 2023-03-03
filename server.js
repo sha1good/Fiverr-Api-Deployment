@@ -31,7 +31,7 @@ app.use((req,res,next)=>{
   next();
 })
 
-app.use(cors({ origin: "https://clone-fiverr-client-app01.netlify.app"}));
+app.use(cors({ origin:"https://clone-fiverr-client-app01.netlify.app", credentials: true }));
 
 app.use(express.json());
 app.use(cookieParser());
