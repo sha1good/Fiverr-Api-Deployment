@@ -31,17 +31,16 @@ const connect = async () => {
 //   next();
 // });
 
-app.set("trust proxy", 1);
+
 app.use(
   cors({
     origin: "https://clone-fiverr-client-app01.onrender.com",
-    credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
 );
 
-app.use(express.json());
 app.use(cookieParser());
+app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
