@@ -26,16 +26,18 @@ const connect = async () => {
   }
 };
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Credentials", true);
+//   next();
+// });
 
 
 app.use(
   cors({
     origin: "https://clone-fiverr-client-app01.onrender.com",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS","HEAD"],
+    credentials: true,
+    exposedHeaders: ["set-cookie"],
   })
 );
 
