@@ -34,7 +34,7 @@ const connect = async () => {
 
 app.use(
   cors({
-    origin: "https://clone-fiverr-client-app01.onrender.com",
+    origin: "https://clone-fiverr-client-app01.netlify.app",
     methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS","HEAD"],
     credentials: true,
     exposedHeaders: ["set-cookie"],
